@@ -5,9 +5,11 @@ class phpmemcachedadmin (
 ) {
 
 	if ( !empty($config[disabled_extensions]) and 'chassis/phpmemcachedadmin' in $config[disabled_extensions] ) {
-		$ensure = absent
+		$file = absent
+		$link = absent
 	} else {
-		$ensure = present
+		$file = file
+		$link = link
 	}
 
 	exec { 'download phpmemcachedadmin':
